@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
-import { createStore } from "redux";
+import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
+import "./index.css";
 
 const defaultState = {
   cash: 0,
@@ -11,9 +11,9 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "ADD-CASH":
+    case "ADD-CASH": 
       return { ...state, cash: state.cash + action.payload };
-    case "GET-CASH":
+    case "WITHDRAW-CASH":
       return { ...state, cash: state.cash - action.payload };
     default:
       return state;
